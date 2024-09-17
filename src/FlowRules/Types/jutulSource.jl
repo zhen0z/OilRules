@@ -23,7 +23,7 @@ struct jutulSource{D, T}
 end
 
 jutulSource(irate::T, loc::NTuple{D, T}) where {D, T} = jutulSource(irate, [loc])
-jutulSource(irate::T, loc::Vector{NTuple{D, T}}) where {D, T} = jutulSource([irate for i = 1:4, (-T(1))*irate for i = 4:length(loc)], vcat([:Injector for i = 1:4], [:Producer for i = 4:length(loc)]), loc)
+jutulSource(irate::T, loc::Vector{NTuple{D, T}}) where {D, T} = jutulSource([irate for i = 1:1, (-T(1))*irate for i = 2:length(loc)], vcat([:Injector for i = 1:1], [:Producer for i = 2:length(loc)]), loc)
 
 display(f::jutulSource{D, T}) where {D, T} =
     println("$(D)D jutulSource structure with $(length(f.loc)) injection/production wells and rate $(f.irate[1]) m^3/s")
